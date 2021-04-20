@@ -73,7 +73,6 @@
                 android:resource="@xml/dcloud_file_provider" />
         </provider>
 
-
     </application>
 
 </manifest>

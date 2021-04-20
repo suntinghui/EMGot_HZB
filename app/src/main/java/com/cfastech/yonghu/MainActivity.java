@@ -12,7 +12,6 @@ import android.view.Display;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import io.dcloud.feature.sdk.DCSDKInitConfig;
 import io.dcloud.feature.sdk.DCUniMPSDK;
@@ -100,7 +99,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void startUniApp() {
-
         DCSDKInitConfig config = new DCSDKInitConfig.Builder()
                 .setCapsule(false) // 设置是否使用胶囊按钮
                 .setEnableBackground(false) // true表示小程序退出时进入后台 false表示直接退出

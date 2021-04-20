@@ -1,9 +1,5 @@
 apply plugin: 'com.android.application'
-//必须配置
-def mfph = [
-        //包名
-        "apk.applicationId" : "com.cfastech.yonghu",
-]
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
@@ -15,10 +11,14 @@ android {
         versionCode 167
         versionName "1.6.7"
         multiDexEnabled true
-        manifestPlaceholders = mfph
         ndk {
             abiFilters 'x86','armeabi-v7a',"arm64-v8a" //不支持armeabi
         }
+
+        manifestPlaceholders = [
+            "apk.applicationId"     : "com.cfastech.yonghu"
+        ]
+
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
@@ -37,6 +37,15 @@ android {
         additionalParameters '--auto-add-overlay'
         //noCompress 'foo', 'bar'
         ignoreAssetsPattern "!.svn:!.git:.*:!CVS:!thumbs.db:!picasa.ini:!*.scc:*~"
+    }
+
+    signingConfigs {
+        debug {
+            keyAlias 'lkoa'
+            keyPassword 'lkpower'
+            storeFile file('E:/项目文档/keystore/lkpower.keystore')
+            storePassword 'lkpower'
+        }
     }
 }
 
